@@ -10,5 +10,3 @@ router.post('/', function(req, res, next) {
   var title = req.body.title;
   console.log(title);
 });
-
-module.exports = router;
