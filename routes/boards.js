@@ -8,9 +8,9 @@ router.get('/:board_id', function(req, res, next) {
   var getBoardQuery = 'SELECT * FROM boards WHERE board_id=?';
   var getMessagesQuery = 'SELECT *, DATE_FORMAT(created_at, \'%Y年%m月%d日 %k時%i分%s秒\') AS created_at FROM messages WHERE board_id=?';
   connection.query(getBoardQuery, [boardId], function(err, board) {
-    console.log(board)
+    console.log(board);
     connection.query(getMessagesQuery, [boardId], function(err, messages) {
-      console.log(messages)
+      console.log(messages);
       try{
         res.render('board', {
           title: board[0].title,
