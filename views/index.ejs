@@ -25,7 +25,12 @@
       <% }); %>
       </ul>
 
+ <% if (typeof user !== 'undefined') { %>
+     <span class="login-user"><%= user.user_name %>さんとしてログインしています</span>
+ <% } %>
+</div>
+
       </form>
-  </div>
+
   </body>
 </html>

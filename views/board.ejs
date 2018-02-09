@@ -17,7 +17,7 @@
                     <li class="main-list__item">
                         <div class="message">
                             <p class="message__title"><%= messageItem.message %></p>
-                            
+
                             <p class="message__date"><%= messageItem.created_at %></p>
                         </div>
                     </li>
@@ -30,8 +30,13 @@
             <input type="text" name="message" class="input" required>
             <button type="submit" class="submit">投稿</button>
         </form>
-    <a href="/" class="btn">トップへもどる</a>
-
+        <!-- 中略 -->
+        <a href="/" class="btn">トップへもどる</a>
+        <% if (typeof user !== 'undefined') { %>
+            <span class="login-user"><%= user.user_name %>さんとしてログインしています</span>
+        <% } %>
+    </div>
+    <!-- 中略 -->
 </div>
 </body>
 </html>
