@@ -13,6 +13,7 @@ router.post('/', function(req, res, next) {
   var userName = req.body.user_name;
   var email = req.body.email;
   var password = req.body.password;
+
   var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
   var emailExistsQuery = 'SELECT * FROM users WHERE email = "' + email + '" LIMIT 1'; // 追加
   var registerQuery = 'INSERT INTO users (user_name, email, password, created_at) VALUES ("' + userName + '", ' + '"' + email + '", ' + '"' + password + '", ' + '"' + createdAt + '")'; // 変更
@@ -26,6 +27,11 @@ router.post('/', function(req, res, next) {
     } else {
       connection.query(registerQuery, function(err, rows) {
         res.redirect('/login');
+        if(err){
+        console.log(err);
+      return;
+      }
+        }
       });
     }
   });
