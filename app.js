@@ -13,7 +13,7 @@ var register = require('./routes/register');
 var login = require('./routes/login');
 var logout = require('./routes/logout'); // 追加
 
-var setUser = require('./setUser');
+
 var app = express();
 
 // view engine setup
@@ -33,9 +33,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/', setUser, routes); // 変更
+app.use('/', routes); // 変更
 app.use('/users', users);
-app.use('/boards', setUser, boards); // 変更
+app.use('/boards', boards); // 変更
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
