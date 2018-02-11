@@ -19,8 +19,7 @@
          <li class="main-list__item">
              <div class="board">
                <p class="board__title"><%= boardItem.title %></p>
-               <p class="board__date"><%= boardItem.created_at %></p>
-             </div>
+               <p class="board__date"><%= boardItem.user_name %> <%= boardItem.created_at %></p><!-- 変更 --> 
          </li>
       <% }); %>
       </ul>
