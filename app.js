@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var boards = require('./routes/boards');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var setUser = require('./setUser'); // 追加
 var logout = require('./routes/logout'); // 追加
 
 
@@ -33,9 +34,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/', routes); // 変更
+app.use('/', setUser, routes); // 変更
 app.use('/users', users);
-app.use('/boards', boards); // 変更
+app.use('/boards', setUser, boards); // 変更
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
