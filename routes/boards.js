@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var moment = require('moment'); // 追加
+var moment = require('moment');
+var multer = require('multer'); // 追加
 var connection = require('../mysqlConnection');
+var upload = multer({ dest: './public/images/uploads/' }); // 追加
 
 router.get('/:board_id', function(req, res, next) {
   var boardId = req.params.board_id;
@@ -24,7 +26,8 @@ router.get('/:board_id', function(req, res, next) {
   });
 });
 
-router.post('/:board_id', function(req, res, next) {
+router.post('/:board_id', upload.single('image_file'), function(req, res) { // 変更
+  console.log(req.file); // 追加
   var message = req.body.message;
   var boardId = req.params.board_id;
   var userId = req.session.user_id? req.session.user_id: 0; // 追加 var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
