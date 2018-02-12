@@ -1,4 +1,5 @@
 var express = require('express');
+var engine = require('ejs-locals'); // 追加
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -18,6 +19,7 @@ var logout = require('./routes/logout'); // 追加
 var app = express();
 
 // view engine setup
+app.engine('ejs', engine); // 追加
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
