@@ -10,10 +10,12 @@
   <body>
   <div class="wrapper">
     <% layout('layout') %>
-           <form action="/" method="post" class="board-form">            
+        <form action="/" method="post" class="board-form">
            <input type="text" name="message" class="input" required>
             <button type="submit" class="submit">投稿</button>
-            <div class="file-wrap">画像を追加<input type="file" name="image_file" class="file"></div>
+            <div class="file-wrap">画像を追加
+              <input type="file" name="image_file" class="file">
+            </div>
         </form>
 <ul class="main-list">
     <% boardList.forEach(function(boardItem) { %>
